@@ -1,0 +1,20 @@
+body{
+    background-color: #5c677d;
+}
+.team-heading{
+    background-color:#CCAD8F ;
+    color: #255C99;
+    
+}
+.text-center{
+    font-size: 50px;
+}
+.employee-card{
+    margin: 20px;
+    border-style: none;
+}
+.card-header{
+    background-color: #255C99;
+    color: white;
+  
+}
