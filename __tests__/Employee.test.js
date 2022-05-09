@@ -1,55 +1,36 @@
-const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
 
-describe("Employee", () => {
+describe("Manager", () => {
   describe("Initialization", () => {
-    it("should instantiate an employee instance", () => {
-      //Arrange
-      const employee = new Employee();
-      //Act
-
-      //Assert
-      expect(typeof employee).toBe("object");
+    it("should set office Number via constrcutor arguments", () => {
+      // arrange
+      const officeNumber = 100;
+      // act
+      const manager = new Manager("Alice", 1, "test@test.com", officeNumber);
+      // assert
+      expect(manager.officeNumber).toBe(officeNumber);
     });
-
-    it("should set name via constructor arguments", () => {
-      //arrance
-      const name = "Allice";
-      //act
-      const employee = new Employee(name);
-      //assert
-      expect(employee.name).toBe(name);
-    });
-    it("should set id via constructor arguments", () => {
-        //arrance
-        const id = 100;
-        //act
-        const employee = new Employee("Alice", id);
-        //assert
-        expect(employee.id).toBe(id);
-      });
-
-      it("should set email via constructor arguments", () => {
-        //arrance
-        const email = "test@test.com";
-        //act
-        const employee = new Employee("Alice", 100, email );
-        //assert
-        expect(employee.email).toBe(email);
-      });
   });
 
-});
+  describe("Getter methods", () => {
+    it("should get office number via getOffice()", () => {
+      // arrange
+      const officeNumber = 100;
+      // act
+      const manager = new Manager("Alice", 1, "test@test.com", officeNumber);
+      const managerOfficeNumber = manager.getOffice();
+      // assert
+      expect(managerOfficeNumber).toBe(officeNumber);
+    });
 
-describe("Getter methods", () => {
-    describe("Initialization", () => {
-      it("it should get name via getID()", () => {
-        //Arrange
-        const name = "Allice";
-        const employee = new Employee (name, 100, "test@test.com");
-        const employeeName = employee.getName();
-        expect(employeeName).toBe(name)
-   
-     
-      });
-    })
-})
+    it("should get role via getRole()", () => {
+      // arrange
+      const role = "Manager";
+      // act
+      const manager = new Manager("Alice", 100, "test@test.com", 100);
+      const managerRole = manager.getRole();
+      // assert
+      expect(managerRole).toBe(role);
+    });
+  });
+});
